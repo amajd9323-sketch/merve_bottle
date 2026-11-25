@@ -86,6 +86,9 @@ body.rd #snd.off::after{display:none}
 #gate button{font:600 1.7rem 'Caveat',cursive;color:#2a1d08;background:var(--gold);border:0;border-radius:99px;padding:10px 30px;cursor:pointer;animation:pl2 2s ease-in-out infinite}@keyframes pl2{50%{transform:translateY(-4px)}}
 #inst{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:110px;z-index:9;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;font-size:1.1rem;cursor:pointer;display:none}#inst.on{display:block}
 #ih{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 86px);transform:translateX(-50%);z-index:31;max-width:88vw;padding:10px 16px;border-radius:14px;background:rgba(10,18,64,.94);border:1px solid var(--gold);color:#fff;font:italic 500 1.1rem/1.3 'Cormorant Garamond',serif;text-align:center;opacity:0;pointer-events:none;transition:opacity .4s}#ih.on{opacity:1}
+.dd{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin:2px 0 8px}.dd button{width:30px;height:30px;border-radius:50%;border:1px solid #a3223a;background:transparent;color:#a3223a;font:700 .95rem 'Cormorant Garamond',serif;cursor:pointer}.dd button.o{background:#a3223a;color:#fff}.dd button:disabled{opacity:.3;cursor:default}
+.dn{min-height:3.2em;text-align:center;font:italic 500 1.2rem/1.35 'Cormorant Garamond',serif;color:var(--ink);margin:0 0 4px}#rtm{font:600 1.1rem 'Cormorant Garamond',serif;padding:6px;border-radius:8px;border:1px solid rgba(163,34,58,.4);background:rgba(255,255,255,.5);color:var(--ink)}
+.bg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:4px 0 10px}.bg button{position:relative;font-size:1.7rem;line-height:1;padding:6px 0;background:rgba(255,255,255,.45);border:1px solid rgba(163,34,58,.35);border-radius:10px;cursor:pointer;animation:bb 3s ease-in-out infinite}.bg button i{position:absolute;right:4px;bottom:1px;font:700 .72rem 'Cormorant Garamond',serif;color:#a3223a}.bg button.o{background:rgba(163,34,58,.2)}@keyframes bb{50%{transform:translateY(-3px) rotate(4deg)}}
 </style></head>
 <body data-l="tr">
 <div id="gate"><small>A message in a bottle · Şişedeki bir mesaj</small><h1>Merve</h1><button id="gb">🔊 Dokun · Tap</button><small>🎧 Ses açılacak · Sound on</small></div>
@@ -111,7 +114,7 @@ body.rd #snd.off::after{display:none}
 <p class="tq">İyi ki doğdun, iyi ki varsın, Merve 💛</p>
 <p class="sig">Hep burada, Hema</p></div>
 <button class="bt" id="rb"><span class="en">Write a reply ✍️</span><span class="tr">Cevap yaz ✍️</span></button>
-<div class="bw"><button class="bt s" id="fb"><span class="en">Water the flower 🌷</span><span class="tr">Çiçeği sula 🌷</span></button><button class="bt s" id="mb2"><span class="en">Our map 🧭</span><span class="tr">Haritamız 🧭</span></button></div>
+<div class="bw"><button class="bt s" id="fb"><span class="en">Water the flower 🌷</span><span class="tr">Çiçeği sula 🌷</span></button><button class="bt s" id="mb2"><span class="en">Our map 🧭</span><span class="tr">Haritamız 🧭</span></button><button class="bt s" id="bb2"><span class="en">19 bottles 🍾</span><span class="tr">19 şişe 🍾</span></button><button class="bt s" id="exb"><span class="en">Exam break 📚</span><span class="tr">Sınav molası 📚</span></button></div>
 </div></div>
 <div class="ov" id="rep"><div class="paper"><span class="seal">M</span>
 <div class="en"><h2>Your reply, in a bottle</h2></div><div class="tr"><h2>Cevabın şişede yola çıksın</h2></div>
@@ -129,7 +132,7 @@ body.rd #snd.off::after{display:none}
 <g id="fbd" style="opacity:0"><ellipse cx="100" cy="98" rx="13" ry="19" fill="#c42a3a"/></g>
 <g id="fpt" style="transform-origin:100px 105px;transform:scale(0)"></g>
 <g class="dp" id="fdp"><circle cx="70" cy="20" r="5" fill="#6fb6e8"/><circle cx="100" cy="0" r="5" fill="#6fb6e8"/><circle cx="130" cy="20" r="5" fill="#6fb6e8"/></g></svg>
-<div class="fm" id="fm"></div>
+<div class="fm" id="fm"></div><div class="dd" id="dd"></div><div class="dn" id="dn"></div><div class="bw"><input type="time" id="rtm" value="20:00"><button class="bt s" id="ics"><span class="en">Remind me 🔔</span><span class="tr">Hatırlat 🔔</span></button></div>
 <div class="bw"><button class="bt s" id="fw"><span class="en">Water 💧</span><span class="tr">Sula 💧</span></button><button class="bt s bk"><span class="en">Back</span><span class="tr">Geri</span></button></div></div></div>
 <div class="ov" id="mpo"><div class="paper"><span class="seal">M</span>
 <div class="en"><h2>Our promise</h2></div><div class="tr"><h2>Sözümüz</h2></div>
@@ -142,6 +145,14 @@ body.rd #snd.off::after{display:none}
 <text font-size="20" style="font-size:22px"><animateMotion id="am" dur="5s" begin="indefinite" fill="freeze"><mpath href="#rt2"/></animateMotion>✈️</text></svg>
 <div class="en"><p class="tq">Gaza → Istanbul → the Black Sea<small>When you’re ready, inshallah.</small></p></div><div class="tr"><p class="tq">Gazze → İstanbul → Karadeniz<small>Hazır olduğunda, inşallah.</small></p></div>
 <div class="bw"><button class="bt s bk"><span class="en">Back</span><span class="tr">Geri</span></button></div></div></div>
+<div class="ov" id="btl"><div class="paper"><span class="seal">M</span>
+<div class="en"><h2>19 bottles</h2></div><div class="tr"><h2>19 şişe</h2></div>
+<div class="bg" id="bg"></div><div class="fm" id="bm"></div><div class="fm"><small id="bc"></small></div>
+<div class="bw"><button class="bt s bk"><span class="en">Back</span><span class="tr">Geri</span></button></div></div></div>
+<div class="ov" id="exm"><div class="paper"><span class="seal">M</span>
+<div class="en"><h2>Exam break</h2></div><div class="tr"><h2>Sınav molası</h2></div>
+<div class="fm" id="xt" style="font-size:3rem">05:00</div><div class="fm" id="xm"></div>
+<div class="bw"><button class="bt s" id="xs"><span class="en">Start</span><span class="tr">Başlat</span></button><button class="bt s" id="xr"><span class="en">Reset</span><span class="tr">Sıfırla</span></button><button class="bt s" id="xn"><span class="en">Another</span><span class="tr">Başka</span></button><button class="bt s bk"><span class="en">Back</span><span class="tr">Geri</span></button></div></div></div>
 <div id="lb"><img alt=""></div><div id="pf"></div><div id="eg"></div>
 <button id="x" aria-label="Close">×</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -322,17 +333,23 @@ const td=()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'
 let S={n:0,d:''};try{S=JSON.parse(localStorage.getItem(K))||S}catch(e){}
 const g=id=>document.getElementById(id),pt=g('fpt');
 for(let i=0;i<8;i++)pt.innerHTML+='<ellipse cx="100" cy="80" rx="13" ry="26" fill="#d0364a" stroke="#a82238" transform="rotate('+i*45+' 100 105)"/>';pt.innerHTML+='<circle cx="100" cy="105" r="11" fill="#f3d58a"/>';
+const NT={tr:['İlk damla bugün. Acele yok 🌱','Sınavlarında kolay gelsin, geleceğin hemşiresi 📚','Bugün bir şeye gülümse. Ben de gülümsüyorum 🙂','Sevdiğin bir şey izle, bir dakika da beni an 📺','Yarı yoldayız. Çiçek de sabırlı, ben de 🌿','Su iç, gözlerini ekrandan dinlendir. Hemşire tavsiyesi 💧','Düşündüğünden çok daha güçlüsün 💪','Karadeniz’de yağmur yağıyorsa, çiçeğe iyi gelir 🌧️','Neredeyse açıyor. Sen de açıyorsun, yavaş yavaş 🌷','Açtı! Sabrın için sağ ol. İyi ki doğdun, Merve 🌹'],en:['First drop today. No rush 🌱','Good luck on your exams, future nurse 📚','Smile about something today. I am too 🙂','Watch something you love, and think of me for a minute 📺','Halfway there. The flower is patient, and so am I 🌿','Drink water, rest your eyes from the screen. Nurse’s advice 💧','You are much stronger than you think 💪','If it rains on the Black Sea, the flower will love it 🌧️','Almost blooming. So are you, slowly 🌷','It bloomed! Thank you for your patience. Happy birthday, Merve 🌹']};
+let sel=0;function dots(){const d=g('dd');d.innerHTML='';for(let i=1;i<=N;i++){const b=document.createElement('button');b.textContent=i;b.disabled=i>S.n;if(i==sel)b.className='o';b.onclick=()=>{sel=i;rf()};d.appendChild(b)}g('dn').textContent=sel?NT[B.dataset.l][sel-1]:''}
 function rf(){const n=S.n,p=n/N,l=B.dataset.l,x=n>=N?5:n>=N*.8?4:n>=N*.6?3:n>=N*.35?2:n>=1?1:0;
 g('fst').style.transform='scaleY('+(n?Math.min(1,.2+p*2.4):0)+')';g('flv').style.opacity=p>=.35?1:0;g('fbd').style.opacity=x==3?1:0;pt.style.transform='scale('+(p<.8?0:.25+.75*(p-.8)/.2)+')';
-g('fm').innerHTML=M[l][x]+'<small>'+n+' / '+N+(S.d==td()&&n<N?' · '+W[l]:'')+'</small>'}
+g('fm').innerHTML=M[l][x]+'<small>'+n+' / '+N+(S.d==td()&&n<N?' · '+W[l]:'')+'</small>';dots()}
 document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',rf));
 function show(id){LT.classList.remove('on');g(id).classList.add('on')}
-g('fb').onclick=()=>{show('flw');rf()};
+g('fb').onclick=()=>{sel=S.n;show('flw');rf()};
 g('mb2').onclick=()=>{show('mpo');try{g('am').beginElement()}catch(e){}};
-function back(){document.querySelectorAll('#flw,#mpo').forEach(o=>o.classList.remove('on'));LT.classList.add('on')}
-document.querySelectorAll('.bk').forEach(b=>b.onclick=back);['flw','mpo'].forEach(i=>g(i).onclick=e=>{if(e.target===g(i))back()});
+function back(){document.querySelectorAll('#flw,#mpo,#btl,#exm').forEach(o=>o.classList.remove('on'));LT.classList.add('on')}
+document.querySelectorAll('.bk').forEach(b=>b.onclick=back);['flw','mpo','btl','exm'].forEach(i=>g(i).onclick=e=>{if(e.target===g(i))back()});
 g('fw').onclick=()=>{const d=g('fdp');d.classList.remove('w');void d.getBoundingClientRect();d.classList.add('w');
-if(S.n>=N){boom();return}if(S.d!=td()){S.n++;S.d=td();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}if(S.n>=N)setTimeout(boom,1200)}setTimeout(rf,900)};
+if(S.n>=N){boom();return}if(S.d!=td()){S.n++;S.d=td();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}if(S.n>=N)setTimeout(boom,1200);sel=S.n}setTimeout(rf,900)};
+g('ics').onclick=()=>{const v=(g('rtm').value||'20:00').split(':').map(Number),d=new Date(),z=x=>String(x).padStart(2,'0');d.setHours(v[0],v[1],0,0);if(d<=new Date())d.setDate(d.getDate()+1);
+const l=B.dataset.l,t=l=='tr'?'🌷 Çiçeği sula':'🌷 Water the flower',c=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Merve//EN','BEGIN:VEVENT','UID:merve-flower@'+location.host,'DTSTAMP:'+new Date().toISOString().replace(/[-:]|\.\d{3}/g,''),'DTSTART:'+d.getFullYear()+z(d.getMonth()+1)+z(d.getDate())+'T'+z(v[0])+z(v[1])+'00','DURATION:PT10M','RRULE:FREQ=DAILY;COUNT='+N,'SUMMARY:'+t,'DESCRIPTION:'+location.href.split('#')[0],'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+t,'TRIGGER:PT0M','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/calendar;charset=utf-8'}));a.download='merve-flower.ics';document.body.appendChild(a);a.click();a.remove();
+const h=g('ih');h.textContent=l=='tr'?'Dosyayı aç → takvime eklenir 📅':'Open the file → it adds to your calendar 📅';h.classList.add('on');setTimeout(()=>h.classList.remove('on'),5000)};
 const gt=g('gate');gt.onclick=()=>{snd();gt.classList.add('off')};
 })();
 (function(){let dp;const b=$('#inst'),h=$('#ih'),ios=/iphone|ipad|ipod/i.test(navigator.userAgent),sa=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
@@ -341,6 +358,19 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e});addEventLis
 if(!sa)b.classList.add('on');
 b.onclick=async()=>{if(dp){dp.prompt();try{await dp.userChoice}catch(e){}dp=null;return}h.textContent=T[B.dataset.l][ios?'i':'a'];h.classList.add('on');setTimeout(()=>h.classList.remove('on'),7000)};
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+})();
+(function(){const g=id=>document.getElementById(id),K='mvBot';let O=[],sel=-1,t=300,iv=0,k=Math.random()*8|0;try{O=JSON.parse(localStorage.getItem(K))||[]}catch(e){}
+const BM={tr:['Dileğim: sınavların hep istediğin gibi geçsin.','13 Kasım’da bir “Hey” yazdın. Günümün en güzel mesajıydı.','Higher or Lower’da hep ben kazandım. Bir gün sen kazanacaksın.','Dileğim: gülüşün hiç eksilmesin.','18 yaşında pastanı kendin yapmıştın. Bu yıl senin için bir şişe de yola çıktı.','Dileğim: yorulunca dinlenmeyi unutma.','Eskiden çizim yaptığını söylemiştin. Bir gün bana da bir şey çiz, olur mu?','İstanbul’u ve Karadeniz’i bana gösterecek olan sensin. Söz.','Dileğim: tüm hayallerin küçük küçük gerçek olsun.','Telefonundaki çiçek gibi, sen de her yere renk katıyorsun.','Hemşire olacaksın. Hastaların çok şanslı olacak.','Dileğim: yanında hep iyi insanlar olsun.','Korkma. Ben gerçeğim, bu da gerçek.','Sulanmamış çiçek hemen açmaz demiştin. Ben beklerim.','Dileğim: her sabah huzurla uyan.','Bugün kendine güzel bir şey al. Hak ediyorsun.','Dileğim: hep güvende ol.','Uzakta olsak da aynı gökyüzüne bakıyoruz.','19. yaşın hayatının en güzel yılı olsun. İyi ki doğdun, Merve 💛'],
+en:['I wish your exams always go the way you want.','On Nov 13 you wrote “Hey”. It was the best message of my day.','I kept winning Higher or Lower. One day you will.','I wish your smile never fades.','At 18 you baked your own cake. This year a bottle set sail for you too.','I wish you remember to rest when you’re tired.','You said you used to draw. Will you draw me something one day?','You’re the one who will show me Istanbul and the Black Sea. A promise.','I wish all your dreams come true, little by little.','Like the flower on your phone, you add color everywhere.','You’ll be a nurse. Your patients will be so lucky.','I wish good people always stay near you.','Don’t be afraid. I’m real, and this is real.','You said an unwatered flower won’t bloom at once. I’ll wait.','I wish you wake up peacefully every morning.','Treat yourself to something nice today. You deserve it.','I wish you always stay safe.','Even far apart, we look at the same sky.','May 19 be the best year of your life. Happy birthday, Merve 💛']};
+function gr(){const e=g('bg');e.innerHTML='';for(let i=0;i<19;i++){const b=document.createElement('button');b.innerHTML='🍾<i>'+(i+1)+'</i>';if(O.includes(i))b.className='o';b.style.animationDelay=(i%5)*.3+'s';b.onclick=()=>{if(!O.includes(i)){O.push(i);try{localStorage.setItem(K,JSON.stringify(O))}catch(x){}}sel=i;try{pop()}catch(x){}gr()};e.appendChild(b)}g('bm').textContent=sel>=0?BM[B.dataset.l][sel]:'';g('bc').textContent=O.length+' / 19'}
+g('bb2').onclick=()=>{LT.classList.remove('on');g('btl').classList.add('on');gr()};
+const E={tr:['Derin bir nefes al. Çok çalıştın.','Su iç, omuzlarını gevşet.','Bu mola bitince bir konu daha. Başarabilirsin.','Geleceğin hemşiresi bunu çözer.','Ekrandan uzaklaş, pencereden dışarı bak.','Mükemmel olmak zorunda değilsin. Sadece devam et.','Ben buradayım, inşallah. Sana güveniyorum.','Sınavdan sonra güzel bir şey ye, kendini ödüllendir.'],en:['Take a deep breath. You’ve worked hard.','Drink water, relax your shoulders.','After this break, one more topic. You can do it.','A future nurse figures this out.','Look away from the screen, out the window.','You don’t have to be perfect. Just keep going.','I’m here, inshallah. I believe in you.','After the exam, eat something nice. Reward yourself.']};
+const tm=()=>{const m=Math.max(t,0);g('xt').textContent=z2(m/60|0)+':'+z2(m%60)},z2=x=>String(x).padStart(2,'0'),ms=()=>{g('xm').textContent=E[B.dataset.l][k]};
+g('exb').onclick=()=>{LT.classList.remove('on');g('exm').classList.add('on');ms();tm()};
+g('xn').onclick=()=>{k=(k+1)%8;ms()};
+g('xr').onclick=()=>{clearInterval(iv);iv=0;t=300;tm();ms()};
+g('xs').onclick=()=>{if(iv)return;iv=setInterval(()=>{t--;tm();if(t<=0){clearInterval(iv);iv=0;t=300;g('xm').textContent=B.dataset.l=='tr'?'Mola bitti! Hadi devam 💪':'Break over! Back to it 💪';try{pop();setTimeout(pop,350)}catch(x){}if(navigator.vibrate)navigator.vibrate(300)}},1000)};
+document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>{gr();ms()}));
 })();
 </script>
 </body></html>
